@@ -6,6 +6,7 @@
 $(document).ready(function(){
     $("#sopa").hide();
     var max = 1;
+    var paraulaSelec = "";
     $("form").submit(function(){
         var array;
         array = $('#in').val().split(",");
@@ -26,8 +27,13 @@ $(document).ready(function(){
 
         partida.createTable(max,max);
 
-
-
+        /*Joc*/
+        $("tr td").click(function (e) { //function_td
+            $(this).css("background-color", "orange");
+            paraulaSelec = paraulaSelec.concat($(this).text());
+            console.log(paraulaSelec);
+            e.stopPropagation();
+        });
 
         return false;
     });

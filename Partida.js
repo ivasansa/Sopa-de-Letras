@@ -31,11 +31,11 @@ function Partida(paraules) {
                 if(((maxCols - posX) >= paraules[i].length) && (filP.indexOf(posY) == -1)){ //entra si cabe y no es una fila "prohibida"
                     var pI = true;
                     for (var j = 0; j < paraules[i].length; j++) {
-                        console.log($('tr:nth-of-type('+(posY + 1)+') td:nth-of-type('+(posX + 1 + j)+')').attr("class"));
+//                        console.log($('tr:nth-of-type('+(posY + 1)+') td:nth-of-type('+(posX + 1 + j)+')').attr("class"));
                         if(($('tr:nth-of-type('+(posY + 1)+') td:nth-of-type('+(posX + 1 + j)+')').attr("class")==false)||($('tr:nth-of-type('+(posY + 1)+') td:nth-of-type('+(posX + 1 + j)+')').attr("class")==undefined)){
                             $('tr:nth-of-type('+(posY + 1)+') td:nth-of-type('+(posX + 1 + j)+')').attr({class: "untouchable"}).text(paraules[i].charAt(j)).css("color","red");
                         }else{
-                            console.log("nope");
+//                            console.log("nope");
                             pI = false;
                         }
                         filP.push(posY);
@@ -45,12 +45,12 @@ function Partida(paraules) {
                 } else if(((maxRows - posY) >= paraules[i].length ) && (colP.indexOf(posX) == -1)){
                     var pI = true;
                     for (var j = 0; j < paraules[i].length; j++) {
-                        console.log($('tr:nth-of-type('+(posY + 1)+') td:nth-of-type('+(posX + 1 + j)+')').attr("class"));
+//                        console.log($('tr:nth-of-type('+(posY + 1)+') td:nth-of-type('+(posX + 1 + j)+')').attr("class"));
                         if(($('tr:nth-of-type('+(posY + 1 + j)+') td:nth-of-type('+(posX + 1)+')').attr("class")==false)||($('tr:nth-of-type('+(posY + 1 + j)+') td:nth-of-type('+(posX + 1)+')').attr("class")==undefined)){
                             $('tr:nth-of-type('+(posY + 1 + j)+') td:nth-of-type('+(posX + 1)+')').attr({class: "untouchable"}).text(paraules[i].charAt(j)).css("color","red");
                         }else{
                             pI = false;
-                            console.log("nope");
+//                            console.log("nope");
                         }
                         filP.push(posX);
                     }
@@ -66,6 +66,9 @@ function Partida(paraules) {
         this.paraulesJoc = pC;
         $("#llistaParaules").append("<p>Nº Paraules: "+this.paraulesJoc+"</p>");
     }
+
+
+
 }
 //        function getRandomInt(min, max) {
 //            return Math.floor(Math.random() * (max - min + 1) + min);
