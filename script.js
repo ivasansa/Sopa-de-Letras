@@ -5,6 +5,7 @@
 
 $(document).ready(function(){
     $("#sopa").hide();
+    $("#llistaParaules").hide();
     var max = 1;
     var paraulaSelec = "";
     $("form").submit(function(){
@@ -21,6 +22,8 @@ $(document).ready(function(){
 
         $("form").hide();
         $("#sopa").show();
+        $("#llistaParaules").show();
+
         array = arrayU
         /*Creació Taula*/
         var partida = new Partida(array);
@@ -29,8 +32,20 @@ $(document).ready(function(){
 
         /*Joc*/
         $("tr td").click(function (e) { //function_td
-            $(this).css("background-color", "orange");
+            $(this).attr(({class:"seleccionat"})).css("background-color", "orange");
             paraulaSelec = paraulaSelec.concat($(this).text());
+            if(partida.paraules.indexOf(paraulaSelec) != -1 ){
+                console.log("trobat");
+                paraulaSelec = "";
+                partida.paraulesJoc -= 1;
+                $("#pJ").removeData();
+                $("#pJ").text("Nº Paraules: "+partida.paraulesJoc);
+                $(".seleccionat").css("background-color", "#00e500");
+            }
+            if(partida.paraulesJoc <= 0){
+                location.reload();
+                alert("Has guanyat!");
+            }
             console.log(paraulaSelec);
             e.stopPropagation();
         });

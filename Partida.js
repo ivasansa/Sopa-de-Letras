@@ -64,7 +64,7 @@ function Partida(paraules) {
             });
         }while(pJ < this.paraules.length);
         this.paraulesJoc = pC;
-        $("#llistaParaules").append("<p>Nº Paraules: "+this.paraulesJoc+"</p>");
+        $("#llistaParaules").append("<p id='pJ'>Nº Paraules: "+this.paraulesJoc+"</p>");
     }
 
 
